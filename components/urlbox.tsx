@@ -9,7 +9,7 @@ const Container = "flex flex-col max-w-3xl w-full p-8 gap-9 rounded-2xl shadow-l
 //create a random 10 character long alias
 function RandomAlias(){
     let res = "";
-    const chars = "qwertyuiopasdfghjklmnopqrstuvwxyz1234567890-+";
+    const chars = "qwertyuiopasdfghjklmnopqrstuvwxyz1234567890-";
     for (let i = 0; i < 10; i++){
         const random = Math.floor(Math.random() * chars.length);
         res += chars[random];

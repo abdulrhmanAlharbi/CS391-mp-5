@@ -14,7 +14,7 @@ export default async function CreateNewAlias(
         return {success: false, error: "Please provide a valid url"};
     }
 
-    const alias_re = /[\/?#&=:%\s]/;
+    const alias_re = /[\/?#&=:%+\s]/;
     if(alias_re.test(alias)) {
         return {success: false, error:"Alias contains invalid characters"};
     }

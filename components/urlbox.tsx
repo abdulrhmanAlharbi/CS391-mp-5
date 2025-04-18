@@ -32,16 +32,16 @@ export default function UrlBox() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try {
-            await CreateNewAlias(alias, url);
+        const result = await CreateNewAlias(alias, url);
+
+            if (!result.success) {
+                setError(result.error);
+                setSuccess("");
+                return;
+            }
 
             setSuccess(`${currenturl}/${alias}`);
             setError("");
-        } catch (err) {
-            const error = err as Error;
-            setError(error.message);
-            setSuccess("");
-        }
     };
 
     //random button

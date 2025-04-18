@@ -1,6 +1,5 @@
 "use server"
 import getCollection, { URL_COLLECTION } from "@/db";
-import { URLentry } from "@/types";
 
 export default async function CreateNewAlias(
     alias: string,

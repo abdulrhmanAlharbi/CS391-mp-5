@@ -36,7 +36,19 @@ export default async function CreateNewAlias(
 
     const re = /^https?:\/\//;
     if (!re.test(url)) {
-        return {success: false, error:"Please specify a url that starts with either `http` or `https`"};
+        return {success: false, error: "Please specify a url that starts with either `http` or `https`"};
+    }
+
+    try {
+        const response = await fetch(url, {method: "HEAD", redirect: "follow"});
+
+        if (!response.ok) {
+            return {success: false, error: "URL responded with an error"};
+        }
+
+
+    } catch {
+        return {success: false, error: "URL is unreachable"};
     }
 
 

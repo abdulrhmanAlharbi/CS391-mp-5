@@ -10,10 +10,10 @@ export default async function RedirectPage
      params,
  }:
  {
-     params: { alias: string };
+     params: Promise<{ alias: string }>;
  }){
 
-    const { alias } = params;
+    const { alias } = await params;
     console.log(alias);
 
     const result = await getURLByAlias(alias);
